@@ -29,10 +29,10 @@ while True:
             #new_todos.append(item.strip("\n"))
 
         # List comprehension - do the same as the above
-        new_todos = [item.strip("\n") for item in todos]
+        # new_todos = [item.strip("\n") for item in todos]
 
-        for index, item in enumerate(new_todos):
-            #item = item.strip("\n").title()
+        for index, item in enumerate(todos):
+            item = item.strip("\n").title()
             print(f"{index + 1}- {item}")
 
     elif user_action == "edit":
