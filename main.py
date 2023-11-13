@@ -22,30 +22,35 @@ while True:
         with open("todos.txt", "r") as file:
             todos = file.readlines()
 
-
-        #new_todos = []
-        #for item in todos:
-            # to remove the extra back slash (extra new line
-            #new_todos.append(item.strip("\n"))
-
-        # List comprehension - do the same as the above
-        # new_todos = [item.strip("\n") for item in todos]
-
         for index, item in enumerate(todos):
             item = item.strip("\n").title()
             print(f"{index + 1}- {item}")
 
     elif user_action == "edit":
         num_todo = int(input("type the number of todo to edit:")) - 1
+
+        with open("todos.txt", "r") as file:
+            todos = file.readlines()
+
         while num_todo <= len(todos) and num_todo >= 0:
             todos[num_todo] = input("Enter the new todo:")
             break
 
+        with open("todos.txt", "w") as file:
+            file.writelines(todos)
+
     elif user_action == "complete":
         print("Complete in progress")
         num_todo = int(input("type the number of todo to complete:"))
+
+        with open("todos.txt", "r") as file:
+            todos = file.readlines()
+
         complete_todos.append(todos[num_todo - 1])
         del todos[num_todo - 1]
+
+        with open("todos.txt", "w") as file:
+            file.writelines(todos)
 
     elif user_action == "exit":
         break
