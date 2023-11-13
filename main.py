@@ -45,12 +45,13 @@ while True:
 
         with open("todos.txt", "r") as file:
             todos = file.readlines()
-
+        todo_to_remove = todos[num_todo - 1].strip("\n")
         complete_todos.append(todos[num_todo - 1])
         del todos[num_todo - 1]
 
         with open("todos.txt", "w") as file:
             file.writelines(todos)
+        print(f"Todo {todo_to_remove} was removed from the list!")
 
     elif user_action == "exit":
         break
