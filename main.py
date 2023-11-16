@@ -6,19 +6,20 @@ while True:
     user_action = input("Type add, show, edit, complete or exit:")
     user_action = user_action.strip()
 
-    if user_action == "add":
+    if "add" in user_action:
         # file = open("todos.txt", "r")
         # todos = file.readlines()
         # file.close()
         with open("todos.txt", "r") as file:
             todos = file.readlines()
 
-        todos.append(input("Enter a todo:") + "\n")
+        # todos.append(input("Enter a todo:") + "\n")
+        todos.append(user_action[4:] + "\n")
 
         with open("todos.txt", "w") as file:
             file.writelines(todos)
 
-    elif user_action == "show":
+    elif "show" in user_action:
         with open("todos.txt", "r") as file:
             todos = file.readlines()
 
@@ -26,7 +27,7 @@ while True:
             item = item.strip("\n").title()
             print(f"{index + 1}- {item}")
 
-    elif user_action == "edit":
+    elif "edit" in user_action:
         num_todo = int(input("type the number of todo to edit:")) - 1
 
         with open("todos.txt", "r") as file:
@@ -39,7 +40,7 @@ while True:
         with open("todos.txt", "w") as file:
             file.writelines(todos)
 
-    elif user_action == "complete":
+    elif "complete" in user_action:
         print("Complete in progress")
         num_todo = int(input("type the number of todo to complete:"))
 
@@ -53,7 +54,7 @@ while True:
             file.writelines(todos)
         print(f"Todo {todo_to_remove} was removed from the list!")
 
-    elif user_action == "exit":
+    elif "exit" in user_action:
         break
 
 print("***BYE***")

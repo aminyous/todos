@@ -1,8 +1,6 @@
-filenames = ["1.doc", "1.report", "1.presentation"]
+test = "my test dfdsf"
 
-filenames = [filename.replace(".", "-") + ".txt" for filename in filenames]
-
-print(filenames)
+print(test[3:])
 
 
 
