@@ -1,4 +1,6 @@
-clean
-cooking
-gardening
-yes
+Clean room
+driving test
+Cooking couscous
+play music
+surfing
+swimming

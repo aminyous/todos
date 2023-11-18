@@ -28,7 +28,8 @@ while True:
             print(f"{index + 1}- {item}")
 
     elif "edit" in user_action:
-        num_todo = int(input("type the number of todo to edit:")) - 1
+
+        num_todo = int(user_action[5:]) - 1
 
         with open("todos.txt", "r") as file:
             todos = file.readlines()
@@ -41,21 +42,23 @@ while True:
             file.writelines(todos)
 
     elif "complete" in user_action:
-        print("Complete in progress")
-        num_todo = int(input("type the number of todo to complete:"))
+        # num_todo = int(input("type the number of todo to complete:"))
+        num_todo = int(user_action[9:]) - 1
 
         with open("todos.txt", "r") as file:
             todos = file.readlines()
-        todo_to_remove = todos[num_todo - 1].strip("\n")
-        complete_todos.append(todos[num_todo - 1])
-        del todos[num_todo - 1]
+        todo_to_remove = todos[num_todo].strip("\n")
+        complete_todos.append(todos[num_todo])
+        del todos[num_todo]
 
         with open("todos.txt", "w") as file:
             file.writelines(todos)
-        print(f"Todo {todo_to_remove} was removed from the list!")
+        print(f"Todo '{todo_to_remove}' was removed from the list!")
 
     elif "exit" in user_action:
         break
+    else:
+        print("Command is not valid!")
 
 print("***BYE***")
 

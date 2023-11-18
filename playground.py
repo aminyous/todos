@@ -1,6 +1,8 @@
-test = "my test dfdsf"
+test = "edit 2est dfdsf"
 
-print(test[3:])
+new = int(test[5:6])
+print(type(new))
+
 
 
 
