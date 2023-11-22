@@ -1,5 +1,3 @@
-# print("Enter a todo")
-#todos = []
 complete_todos = []
 
 while True:
@@ -7,13 +5,9 @@ while True:
     user_action = user_action.strip()
 
     if "add" in user_action:
-        # file = open("todos.txt", "r")
-        # todos = file.readlines()
-        # file.close()
         with open("todos.txt", "r") as file:
             todos = file.readlines()
 
-        # todos.append(input("Enter a todo:") + "\n")
         todos.append(user_action[4:] + "\n")
 
         with open("todos.txt", "w") as file:
@@ -42,7 +36,6 @@ while True:
             file.writelines(todos)
 
     elif "complete" in user_action:
-        # num_todo = int(input("type the number of todo to complete:"))
         num_todo = int(user_action[9:]) - 1
 
         with open("todos.txt", "r") as file:
