@@ -22,31 +22,41 @@ while True:
             print(f"{index + 1}- {item}")
 
     elif user_action.startswith("edit"):
+        try:
+            num_todo = int(user_action[5:]) - 1
 
-        num_todo = int(user_action[5:]) - 1
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
+            try:
+                item_to_edit = todos[num_todo].strip("\n")
+                print(f"You will edit this item : {item_to_edit}")
+                todos[num_todo] = input("Enter the new todo:") + "\n"
+            except IndexError:
+                print(f"There is no item with number {num_todo + 1}")
+                continue
 
-        with open("todos.txt", "r") as file:
-            todos = file.readlines()
-
-        while num_todo <= len(todos) and num_todo >= 0:
-            todos[num_todo] = input("Enter the new todo:") + "\n"
-            break
-
-        with open("todos.txt", "w") as file:
-            file.writelines(todos)
+            with open("todos.txt", "w") as file:
+                file.writelines(todos)
+        except ValueError:
+            print("Todo's number is not valid, please try again.")
+            continue
 
     elif user_action.startswith("complete"):
-        num_todo = int(user_action[9:]) - 1
+        try:
+            num_todo = int(user_action[9:]) - 1
 
-        with open("todos.txt", "r") as file:
-            todos = file.readlines()
-        todo_to_remove = todos[num_todo].strip("\n")
-        complete_todos.append(todos[num_todo])
-        del todos[num_todo]
+            with open("todos.txt", "r") as file:
+                todos = file.readlines()
+            todo_to_remove = todos[num_todo].strip("\n")
+            complete_todos.append(todos[num_todo])
+            del todos[num_todo]
 
-        with open("todos.txt", "w") as file:
-            file.writelines(todos)
-        print(f"Todo '{todo_to_remove}' was removed from the list!")
+            with open("todos.txt", "w") as file:
+                file.writelines(todos)
+            print(f"Todo '{todo_to_remove}' was removed from the list!")
+        except IndexError:
+            print(f"There is no item with number {num_todo + 1}")
+            continue
 
     elif user_action.startswith("exit"):
         break
