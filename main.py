@@ -7,9 +7,9 @@ def get_todo(filepath):
     return todos_file
 
 
-def set_todo(filepath):
+def set_todo(filepath, data):
     with open(filepath, "w") as file:
-        file.writelines(todos)
+        file.writelines(data)
 
 
 def get_user_answer():
@@ -26,7 +26,7 @@ while True:
         todos = get_todo(path)
         todos.append(user_action[4:] + "\n")
 
-        set_todo(path)
+        set_todo(path, todos)
     elif user_action.startswith("show"):
         todos = get_todo(path)
         for index, item in enumerate(todos):
@@ -46,7 +46,7 @@ while True:
                 print(f"There is no item with number {num_todo + 1}")
                 continue
 
-            set_todo(path)
+            set_todo(path, todos)
 
         except ValueError:
             print("Todo's number is not valid, please try again.")
@@ -61,7 +61,7 @@ while True:
             complete_todos.append(todos[num_todo])
             del todos[num_todo]
 
-            set_todo(path)
+            set_todo(path, todos)
             print(f"Todo '{todo_to_remove}' was removed from the list!")
         except IndexError:
             print(f"There is no item with number {num_todo + 1}")
