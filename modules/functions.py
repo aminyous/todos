@@ -19,3 +19,8 @@ def set_todo(data, filepath=path):
 def get_user_answer():
     user_answer = input("Type add, show, edit, complete or exit:")
     return user_answer.strip()
+
+
+if __name__ == "__main__":
+    print(__name__)
+
