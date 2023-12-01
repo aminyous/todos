@@ -21,6 +21,8 @@ def get_user_answer():
     return user_answer.strip()
 
 
+""" __name__ will take the value __main__ if we execute it directly here, if we import it 
+in another file and execute it, value will be the file name, here __name__ = functions"""
 if __name__ == "__main__":
     print(__name__)
 
