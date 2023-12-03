@@ -27,18 +27,18 @@ while True:
             num_todo = int(user_action[5:]) - 1
 
             todos = get_todo()
-            try:
-                item_to_edit = todos[num_todo].strip("\n")
-                print(f"You will edit this item : {item_to_edit}")
-                todos[num_todo] = input("Enter the new todo:") + "\n"
-            except IndexError:
-                print(f"There is no item with number {num_todo + 1}")
-                continue
+
+            item_to_edit = todos[num_todo].strip("\n")
+            print(f"You will edit this item : {item_to_edit}")
+            todos[num_todo] = input("Enter the new todo:") + "\n"
 
             set_todo(todos)
 
         except ValueError:
-            print("Todo's number is not valid, please try again.")
+            print(f"Todo's number is not valid : {user_action[5:]}, please try again.")
+            continue
+        except IndexError:
+            print(f"There is no item with number : {num_todo + 1}")
             continue
 
     elif user_action.startswith("complete"):
