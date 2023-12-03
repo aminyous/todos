@@ -1,0 +1,20 @@
+[
+  {
+    "Question_text": "What is Dolphins?",
+    "Alternatives": [
+      "Fish",
+      "Mammals",
+      "Humans",
+      "Birds"
+    ],
+    "Answer": 1
+  },
+  {
+    "Question_text": "What is Dogs?",
+    "Alternatives": [
+      "Fish",
+      "Mammals"
+    ],
+    "Answer": 2
+  }
+]
