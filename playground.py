@@ -1,7 +1,8 @@
-import csv
+import webbrowser
 
-with open("file/temperatures.csv", "r") as file:
-    data = list(csv.reader(file))
+user_term = input("Enter your search term: ")
 
-print(data)
+webbrowser.open(f"https://www.google.fr/maps/place/{user_term}")
+
+
 
