@@ -1,8 +1,14 @@
 from modules.functions import *
+import time
+
 
 complete_todos = []
 
+
 while True:
+    now = time.strftime("%d-%b-%Y, %H:%M:%S")
+
+    print(f"It is : {now}")
     user_action = get_user_answer()
 
     if user_action.startswith("add"):
@@ -54,6 +60,8 @@ while True:
         break
     else:
         print("Command is not valid!")
+
+    print("\n")
 
 print("***BYE***")
 

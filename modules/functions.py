@@ -1,7 +1,7 @@
-path = "todos.txt"
+PATH = "todos.txt"
 
 
-def get_todo(filepath=path):
+def get_todo(filepath=PATH):
     """ Read a text file and return the content in a form of a list """
 
     with open(filepath, "r") as file:
@@ -9,7 +9,7 @@ def get_todo(filepath=path):
     return todos_file
 
 
-def set_todo(data, filepath=path):
+def set_todo(data, filepath=PATH):
     """ Write a list in the text file """
 
     with open(filepath, "w") as file:
@@ -22,7 +22,7 @@ def get_user_answer():
 
 
 """ __name__ will take the value __main__ if we execute it directly here, if we import it 
-in another file and execute it, value will be the file name, here __name__ = functions"""
+in another file and execute it, value will be the file name, here __name__ = functions """
 if __name__ == "__main__":
     print(__name__)
 
