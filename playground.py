@@ -1,10 +1,7 @@
-import glob
+import csv
 
-my_files = glob.glob("file/*.txt")
+with open("file/temperatures.csv", "r") as file:
+    data = list(csv.reader(file))
 
-my_files.sort()
-
-for item in my_files:
-    with open(item, "r") as files:
-        print(files.read())
+print(data)
 
